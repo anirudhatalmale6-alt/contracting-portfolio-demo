@@ -63,7 +63,7 @@
       var s = slides[idx];
       lbImg.src = s.full;
       lbImg.alt = s.alt;
-      lbCap.innerHTML = '<b>' + s.title + '</b> — ' + s.caption;
+      lbCap.innerHTML = '<b>' + s.title + '</b>' + s.caption;
       lbPos.textContent = (idx + 1) + ' / ' + slides.length;
     }
 

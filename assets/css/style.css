@@ -686,7 +686,7 @@ h1, h2, h3, h4, .h {
 
 .lb {
   position: fixed; inset: 0; z-index: 200;
-  background: rgba(9, 11, 12, .985);
+  background: #0a0c0d;
   display: none;
   flex-direction: column;
 }
@@ -725,10 +725,13 @@ h1, h2, h3, h4, .h {
 .lb__nav--prev { left: clamp(6px, 1.4vw, 18px); }
 .lb__nav--next { right: clamp(6px, 1.4vw, 18px); }
 .lb__cap {
-  padding: 12px clamp(14px, 3vw, 26px) 22px;
-  color: #c9cfd2; font-size: 15px; text-align: center;
+  padding: 14px clamp(14px, 3vw, 26px) 24px;
+  margin: 0 auto;
+  max-width: 74ch;
+  color: #c9cfd2; font-size: 15px; line-height: 1.5; text-align: center;
   min-height: 24px;
 }
+.lb__cap b { display: block; margin-bottom: 3px; }
 .lb__cap b { color: var(--paper); font-family: var(--f-head); font-weight: 600; }
 
 body[data-lb="open"] { overflow: hidden; }
