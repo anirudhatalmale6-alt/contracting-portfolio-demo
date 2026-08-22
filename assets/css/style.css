@@ -688,9 +688,12 @@ h1, h2, h3, h4, .h {
   position: fixed; inset: 0; z-index: 200;
   background: #0a0c0d;
   display: none;
-  flex-direction: column;
 }
-.lb[data-open="true"] { display: flex; }
+.lb[data-open="true"] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;   /* definite middle row so the
+                                                     image's max-height resolves */
+}
 .lb__bar {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
   padding: 14px clamp(14px, 3vw, 26px);
@@ -704,9 +707,10 @@ h1, h2, h3, h4, .h {
 }
 .lb__close:hover { background: var(--amber); color: var(--ink); border-color: var(--amber); }
 .lb__stage {
-  flex: 1; position: relative; display: grid; place-items: center;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
   padding: 0 clamp(10px, 6vw, 76px) 10px;
-  min-height: 0;
+  min-height: 0; overflow: hidden;
 }
 .lb__stage img {
   max-width: 100%; max-height: 100%;
@@ -724,6 +728,13 @@ h1, h2, h3, h4, .h {
 .lb__nav:hover { background: var(--amber); color: var(--ink); }
 .lb__nav--prev { left: clamp(6px, 1.4vw, 18px); }
 .lb__nav--next { right: clamp(6px, 1.4vw, 18px); }
+@media (max-width: 720px) {
+  /* let the photo use the full width; the arrows float over it */
+  .lb__stage { padding: 0 0 8px; }
+  .lb__nav { background: rgba(10, 12, 13, .6); }
+  .lb__nav--prev { left: 0; }
+  .lb__nav--next { right: 0; }
+}
 .lb__cap {
   padding: 14px clamp(14px, 3vw, 26px) 24px;
   margin: 0 auto;
